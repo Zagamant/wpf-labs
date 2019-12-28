@@ -1,0 +1,51 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LibraryResource">
+    <TextBlock x:Key="{ComponentResourceKey
+                       TypeInTargetAssembly={x:Type local:CustomResources},
+                       ResourceId=Title1}"
+               TextAlignment="Center"
+               Text="Группа кнопок 1"
+               FontSize="14" FontWeight="Bold" 
+               FontFamily="Arial"
+               FontStyle="Italic" 
+               TextDecorations="Underline"
+               Foreground="DarkViolet" />
+    <SolidColorBrush x:Key="{ComponentResourceKey
+                             TypeInTargetAssembly={x:Type local:CustomResources},
+                             ResourceId=ForegroundBrush1}"
+                     Color="Blue" />
+    <ImageBrush x:Key="{ComponentResourceKey
+                        TypeInTargetAssembly={x:Type local:CustomResources},
+                        ResourceId=BackgroundBrush1}"
+                TileMode="Tile" 
+                ViewportUnits="Absolute" 
+                Viewport="0 0 10 10"
+                ImageSource="Images/FACE02.ICO" 
+                Opacity="0.5" />
+
+    <TextBlock x:Key="{ComponentResourceKey
+                       TypeInTargetAssembly={x:Type local:CustomResources},
+                       ResourceId=Title2}"
+               TextAlignment="Center"
+               Text="Группа кнопок 2"
+               FontSize="14" 
+               FontWeight="Bold" 
+               FontFamily="Arial"
+               FontStyle="Italic" 
+               TextDecorations="Underline"
+               Foreground="DarkViolet" />
+    <SolidColorBrush x:Key="{ComponentResourceKey
+                             TypeInTargetAssembly={x:Type local:CustomResources},
+                             ResourceId=ForegroundBrush2}"
+                     Color="Red" />
+    <ImageBrush x:Key="{ComponentResourceKey
+                        TypeInTargetAssembly={x:Type local:CustomResources},
+                        ResourceId=BackgroundBrush2}"
+                TileMode="Tile" 
+                ViewportUnits="Absolute" 
+                Viewport="0 0 24 24"
+                ImageSource="Images/FACE04.ICO" 
+                Opacity="0.3" />
+</ResourceDictionary>

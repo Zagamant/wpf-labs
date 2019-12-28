@@ -1,0 +1,4 @@
+﻿GotoErrorDialogTitle=Go To Line Error
+GotoErrorMsgFormat=Текстовое поле должно\nсодержать целое число
+GotoErrorMsgEmpty=Введите число в текстовое поле
+GotoErrorMsgRange=Выход за границы диапазона

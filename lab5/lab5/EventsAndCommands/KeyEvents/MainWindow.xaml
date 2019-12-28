@@ -1,0 +1,64 @@
+﻿<Window x:Class="KeyEvents.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1: События клавиатуры" 
+    Height="300" 
+    Width="300"
+    MinHeight="300" 
+    MinWidth="300"
+    Background="#FFD4D0C8"
+    >
+    <DockPanel LastChildFill="True" Margin="2,2,2,0">
+        <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+            <Label DockPanel.Dock="Left" Content="Введите текст:" />
+            <TextBox Name="textBox"
+                PreviewKeyDown="textBox_KeyEvent"
+                KeyDown="textBox_KeyEvent"
+                PreviewKeyUp="textBox_KeyEvent"
+                KeyUp="textBox_KeyEvent"
+                PreviewTextInput="textBox_PreviewTextInput"
+               />
+        </DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Margin="0,5,0,0">
+            <CheckBox Name="checkIgnoreRepeat"
+                Content="Игнорировать автогенерацию клавиш" 
+                IsChecked="True" 
+                Click="Check_Click"
+                IsTabStop="False"
+                />
+            <CheckBox Name="checkIgnorePreviewTextInput"
+                Content="Игнорировать событие PreviewTextInput" 
+                IsChecked="True" 
+                Margin="0,2"
+                Click="Check_Click"
+                IsTabStop="False"
+                />
+            <CheckBox Name="checkIgnoreSymbol"
+                Content="Запретить в TextBox нечисловые клавиши" 
+                Margin="15,2"
+                Click="Check_Click"
+                IsTabStop="False"
+                />
+            <CheckBox Name="checkIgnoreOther"
+                Content="Запретить в TextBox некоторые клавиши" 
+                Margin="0,2"
+                Click="Check_Click"
+                IsTabStop="False"
+                />
+            <CheckBox Name="checkConvertNumber"
+                Content="Конвертировать вывод цифровых клавиш" 
+                Margin="0,2"
+                Click="Check_Click"
+                IsTabStop="False"
+                />
+            <Button 
+                HorizontalAlignment="Right" 
+                Content="Очистить" 
+                Margin="0,5,0,2"
+                Padding="5,0,5,0"
+                Click="Button_Click"
+                />
+        </StackPanel>
+        <ListBox Name="listBox" Focusable="False" />
+    </DockPanel>
+</Window>

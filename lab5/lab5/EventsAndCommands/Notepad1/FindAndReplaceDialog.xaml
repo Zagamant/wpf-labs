@@ -1,0 +1,154 @@
+﻿<Window x:Class="Notepad1.FindAndReplaceDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Find and Replace"
+    WindowStartupLocation="CenterOwner"
+    SizeToContent="WidthAndHeight"
+    ResizeMode="NoResize"
+    ShowInTaskbar="false"
+    Activated="OnActivated"
+    Background="{StaticResource DialogBackgroundBrush}"
+        >
+    <Grid ShowGridLines="False" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- Контейнер для кнопок -->
+        <StackPanel
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Grid.Column="2"
+            Margin="5"
+            >
+            <!-- Задаем отступы кнопок -->
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="3" />
+                </Style>
+            </StackPanel.Resources>
+            <Button
+                MinWidth="75"
+                MinHeight="23"
+                Name="_findNext"
+                IsDefault="True"
+                IsEnabled="False"
+                Click="FindNextClicked"
+                Content="_Find Next" />
+            <Button
+                MinWidth="75"
+                MinHeight="23"
+                Name="_replace"
+                Visibility="Collapsed"
+                Click="ReplaceClicked"
+                Content="_Replace" />
+            <Button
+                MinWidth="75"
+                MinHeight="23"
+                Name="_replaceAll"
+                Click="ReplaceAllClicked"
+                Visibility="Collapsed"
+                Content="Replace _All" />
+            <Button
+                MinWidth="75"
+                MinHeight="23"
+                Click="CancelClicked"
+                IsCancel="True"
+                Content="Cancel" />
+        </StackPanel>
+
+        <!-- Текстовые метки и текстовые поля в левом верхнем квадранте -->
+        <Grid
+            ShowGridLines="False"
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="5 10 0 0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                Target="{Binding ElementName=_findWhat}"
+                Content="Fi_nd what:" />
+            <TextBox
+                Name="_findWhat"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="150"
+                MaxLength="100"
+                Margin="0 5 0 5"
+                AcceptsReturn="False"
+                TextChanged="FindTextChanged" />
+
+            <Label
+                Name="_replaceLabel"
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                Target="{Binding ElementName=_replaceWith}"
+                Visibility="Collapsed"
+                Content="Re_place with:" />
+            <TextBox
+                Name="_replaceWith"
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="150"
+                MaxLength="100"
+                VerticalAlignment="Center"
+                Visibility="Collapsed"
+                AcceptsReturn="False" />
+        </Grid>
+
+        <!-- Секция установки регистра и направления поиска для замены -->
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!-- Установка регистра -->
+            <CheckBox
+                Name="_matchCase"
+                Grid.Column="0"
+                Margin="8 0 10 10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                IsChecked="False"
+                Focusable="True"
+                Content="Match _case" />
+
+            <!-- Группа радиокнопок направления поиска -->
+            <GroupBox 
+                Name="_directionGroupBox"
+                Header="Direction"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                Margin="0 10 0 10">
+                <StackPanel Orientation="Horizontal" Margin="10 20 10 10">
+                    <RadioButton
+                        Name="_findDown"
+                        IsChecked="True"
+                        Content="_Down" />
+                    <RadioButton
+                        Name="_findUp"
+                        Margin="8 0 0 0"
+                        Content="_Up" />
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Window>

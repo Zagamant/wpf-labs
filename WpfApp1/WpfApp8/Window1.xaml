@@ -1,0 +1,267 @@
+﻿<Window x:Class="WpfApp8.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Упражнение 8. Панель Grid" 
+    Height="300" Width="300"
+    Background="LightGray"
+        >
+    <TabControl>
+
+        <TabItem Header="Grid 0">
+            
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Background="LightPink">Первый</Button>
+                    <Button Grid.Row="1" Grid.Column="0" Background="Lime">Второй</Button>
+                    <Button Grid.Row="1" Grid.Column="1" Background="Aquamarine">Третий (длинное содержимое)</Button>
+                    <Button Grid.Row="0" Grid.Column="1" Background="Yellow">Четвертый</Button>
+                </Grid>
+            
+
+        </TabItem>
+
+        <TabItem Header="Grid 1">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Background="LightPink">Первый</Button>
+                <Button Grid.Row="0" Grid.Column="1" Background="Lime">Второй</Button>
+                <Button Grid.Row="1" Grid.Column="0" Background="Aquamarine">Третий (длинное содержимое)</Button>
+                <Button Grid.Row="1" Grid.Column="1" Background="Yellow">Четвертый</Button>
+            </Grid>
+        </TabItem>
+
+
+        <TabItem Header="Grid 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" MinWidth="0" Background="LightPink">Первый</Button>
+                <Button Grid.Row="0" Grid.Column="1" MinWidth="0" Background="Lime">Второй</Button>
+                <Button Grid.Row="1" Grid.Column="0" MinWidth="0" Background="Aquamarine">Третий</Button>
+                <Button Grid.Row="1" Grid.Column="1" MinWidth="0" Background="Yellow">Четвертый</Button>
+            </Grid>
+        </TabItem>
+
+
+        <TabItem Header="Grid 3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" MinWidth="0" Background="LightPink">Первый</Button>
+                <Button Grid.Row="0" Grid.Column="1" MinWidth="0" Background="Lime">Второй</Button>
+                <Button Grid.Row="1" Grid.Column="0" MinWidth="0" Background="Aquamarine">Третий</Button>
+                <Button Grid.Row="1" Grid.Column="1" MinWidth="0" Background="Yellow">Четвертый</Button>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="My Grid">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" MinHeight="40" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="1*" MinHeight="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" MinWidth="40"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" MinWidth="40" />
+                </Grid.ColumnDefinitions>
+                <GridSplitter
+Grid.RowSpan="3"
+Grid.Column="1"
+Width="2"
+ResizeDirection="Columns"
+ResizeBehavior="PreviousAndNext"
+VerticalAlignment="Stretch" />
+                <GridSplitter
+Grid.Row="1"
+Grid.ColumnSpan="3"
+Height="2"
+ResizeDirection="Rows"
+ResizeBehavior="PreviousAndNext"
+HorizontalAlignment="Stretch" />
+                <Button Grid.Row="0" Grid.Column="0" MinWidth="0" Background="LightPink">Первый</Button>
+                <Button Grid.Row="0" Grid.Column="2" MinWidth="0" Background="Lime">Второй</Button>
+                <Button Grid.Row="2" Grid.Column="0" MinWidth="0" Background="Aquamarine">Третий</Button>
+                <Button Grid.Row="2" Grid.Column="2" MinWidth="0" Background="Yellow">Четвертый</Button>
+            </Grid>
+        </TabItem>
+
+
+        <TabItem Header="Grid 4">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Background="LightPink">Первый</Button>
+                <Button Grid.Row="1" Background="Lime">Второй</Button>
+                <Button Grid.Row="2" Background="Aquamarine">Третий - самое длинное содержимое</Button>
+                <Button Grid.Row="3" Background="Yellow">Четвертый</Button>
+            </Grid>
+        </TabItem>
+
+
+        <TabItem Header="Grid 5">
+            <Grid Grid.IsSharedSizeScope="True" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="myKey" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="myKey" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" MinWidth="0" Background="LightPink">Первый</Button>
+                <Button Grid.Row="0" Grid.Column="1" MinWidth="0" Background="Lime">Второй</Button>
+                <Button Grid.Row="1" Grid.Column="0" MinWidth="0" Background="Aquamarine">Наибольшей ширины</Button>
+                <Button Grid.Row="1" Grid.Column="1" MinWidth="0" Background="Yellow">Четвертый</Button>
+            </Grid>
+        </TabItem>
+
+
+        <TabItem Header="Grid 6">
+            <StackPanel Grid.IsSharedSizeScope="True">
+                <TextBlock HorizontalAlignment="Center">
+                    Сетки с обобществлением размеров столбцов
+                </TextBlock>
+                <StackPanel Margin="5" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="myKey1" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="myKey2" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Background="LightPink">Первый</Button>
+                    <Button Grid.Row="0" Grid.Column="1" Background="Lime">Второй</Button>
+                    <Button Grid.Row="1" Grid.Column="0" Background="Aquamarine">
+                        Шире для всех первых столбцов
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="1" Background="Yellow">Четвертый</Button>
+                </Grid>
+                <StackPanel Margin="5" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="myKey1" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Background="LightPink">1</Button>
+                    <Button Grid.Row="0" Grid.Column="1" Background="Lime">2</Button>
+                    <Button Grid.Row="1" Grid.Column="0" Background="Aquamarine">3</Button>
+                    <Button Grid.Row="1" Grid.Column="1" Background="Yellow">4</Button>
+                </Grid>
+                <StackPanel Margin="5" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="myKey2" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Background="LightPink">1</Button>
+                    <Button Grid.Row="0" Grid.Column="1" Background="Lime">2</Button>
+                    <Button Grid.Row="1" Grid.Column="0" Background="Aquamarine">3</Button>
+                    <Button Grid.Row="1" Grid.Column="1" Background="Yellow">4</Button>
+                </Grid>
+                <StackPanel Margin="5" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="myKey1" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="myKey2" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Background="LightPink">1</Button>
+                    <Button Grid.Row="0" Grid.Column="1" Background="Lime">2</Button>
+                    <Button Grid.Row="1" Grid.Column="0" Background="Aquamarine">3</Button>
+                    <Button Grid.Row="1" Grid.Column="1" Background="Yellow">Шире для вторых</Button>
+                </Grid>
+            </StackPanel>
+        </TabItem>
+
+
+        <TabItem Header="Grid 7">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" Margin="5">
+                    Объединение столбцов первой строки
+                </TextBlock>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" MinHeight="50" MaxHeight="150" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" MinWidth="40" MaxWidth="200" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.ColumnSpan="3" Background="LightPink">Перый и второй</Button>
+                    <GridSplitter
+                        Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        Height="2"
+                        ResizeDirection="Rows"
+                        ResizeBehavior="PreviousAndNext"
+                        HorizontalAlignment="Stretch" />
+                    <Button Grid.Row="2" Grid.Column="0" Background="Aquamarine">Третий</Button>
+                    <GridSplitter
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Width="2"
+                        ResizeDirection="Columns"
+                        ResizeBehavior="PreviousAndNext"
+                        VerticalAlignment="Stretch" />
+                    <Button Grid.Row="2" Grid.Column="2" Background="Yellow">Четвертый</Button>
+                </Grid>
+            </Grid>
+        </TabItem>
+
+    </TabControl>
+</Window>

@@ -1,0 +1,15 @@
+﻿<Application x:Class="Notepad2.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <String xmlns="clr-namespace:System;assembly=Mscorlib" x:Key="ApplicationTitle1">
+            "Window1: Управление состоянием источников команд"
+        </String>
+        <String xmlns="clr-namespace:System;assembly=Mscorlib" x:Key="ApplicationTitle2">
+            "Window2: Управление состоянием источников команд"
+        </String>
+        <SolidColorBrush x:Key="DialogBackgroundBrush" 
+                         Color="{x:Static SystemColors.ControlColor}" />
+    </Application.Resources>
+</Application>

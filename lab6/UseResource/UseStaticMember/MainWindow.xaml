@@ -1,0 +1,70 @@
+﻿<Window x:Class="UseStaticMember.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Использование статических членов классов как ресурсы" 
+    SizeToContent="WidthAndHeight"
+    WindowStartupLocation="CenterScreen"
+    ResizeMode="CanResizeWithGrip"
+    Background="{x:Static SystemColors.MenuBarBrush}"
+    >
+    <StackPanel
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:my="clr-namespace:UseStaticMember"
+        >
+        <TextBlock 
+            TextAlignment="Center"
+            FontFamily="Arial"
+            Foreground="Red"
+            FontWeight="Bold"
+            FontSize="14">
+            <LineBreak />
+            Ресурсы из статических свойств системных классов
+        </TextBlock>
+        <TextBlock>
+            <Label Content="OSVersion:" />
+            <Label Content="{x:Static my:UserClass.OSVersion}" />
+            <LineBreak />
+            <Label Content="Version:" />
+            <Label Content="{x:Static my:UserClass.Version}" />
+            <LineBreak />
+            <Label Content="DateTime:" />
+            <Label Content="{x:Static my:UserClass.DateTime}" />
+            <LineBreak />
+            <LineBreak />
+            <Label Content="MachineName:" />
+            <Label Content="{x:Static s:Environment.MachineName}" />
+            <LineBreak />
+            <Label Content="UserName:" />
+            <Label Content="{x:Static s:Environment.UserName}" />
+            <LineBreak />
+            <Label Content="UserDomainName:" />
+            <Label Content="{x:Static s:Environment.UserDomainName}" />
+            <LineBreak />
+            <Label Content="SystemDirectory:" />
+            <Label Content="{x:Static s:Environment.SystemDirectory}" />
+            <LineBreak />
+            <Label Content="CurrentDirectory:" />
+            <Label Content="{x:Static s:Environment.CurrentDirectory}" />
+            <LineBreak />
+            <Label Content="CommandLine:" />
+            <Label Content="{x:Static s:Environment.CommandLine}" />
+            <LineBreak /> 
+            <Label Content="ExitCode:" />
+            <Label Content="{x:Static s:Environment.ExitCode}" />
+            <LineBreak />
+            <Label Content="HasShutdownStarted:" />
+            <Label Content="{x:Static s:Environment.HasShutdownStarted}" />
+            <LineBreak />
+            <TextBlock Padding="10,0,10,0"
+                Background="{x:Static my:UserClass.backgroundBrush}"
+                Foreground="{x:Static my:UserClass.foregroundBrush}"
+                FontSize="{x:Static my:UserClass.FontSize}"
+                >
+                <TextBlock.FontFamily>
+                    <x:Static Member="my:UserClass.FontFamily" />
+                </TextBlock.FontFamily>
+                Ресурсы из статических полей нашего класса
+            </TextBlock>
+        </TextBlock>
+    </StackPanel>
+</Window>

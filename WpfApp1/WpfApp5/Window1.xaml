@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfApp5.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Менеджер размещения Canvas" Height="300" Width="300" 
+    Background="LightGray">
+    <TabControl>
+        <TabItem Header="Canvas 1">
+            <Canvas Width="200" Height="100" Background="Aqua">
+                <Button Canvas.Left="2" Canvas.Top="2">Left, Top</Button>
+                <Button Canvas.Right="2" Canvas.Top="2">Right, Top</Button>
+                <Button Canvas.Left="2" Canvas.Bottom="2">Left, Bottom</Button>
+                <Button Canvas.Right="2" Canvas.Bottom="2">Right, Bottom</Button>
+            </Canvas>
+        </TabItem>
+        <TabItem Header="Canvas 2">
+            <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" Background="Aqua">
+                <Button Canvas.Left="2" Canvas.Top="2">Left, Top</Button>
+                <Button Canvas.Right="2" Canvas.Top="2">Right, Top</Button>
+                <Button Canvas.Left="2" Canvas.Bottom="2">Left, Bottom</Button>
+                <Button Canvas.Right="2" Canvas.Bottom="2">Right, Bottom</Button>
+            </Canvas>
+        </TabItem>
+        <TabItem Header="Canvas 3">
+            <StackPanel>
+                <Button>Button 1</Button>
+                <Button>Button 2</Button>
+                <Canvas HorizontalAlignment="Center" Background="Aqua">
+                    <Button Canvas.Left="-21" Canvas.Top="8">Canvas</Button>
+                </Canvas>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Window>

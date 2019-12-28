@@ -1,0 +1,63 @@
+﻿<Window x:Class="WpfApp6.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="StackPanel, DockPanel" Height="300" Width="300"
+    Background="LightGray"
+        >
+    <TabControl>
+        <TabItem Header="StackPanel">
+            <Border BorderBrush="Red" BorderThickness="2"
+            HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="5" Background="Aqua">
+                        <Button Margin="2">One</Button>
+                        <Button Margin="2">Two</Button>
+                        <Button Margin="2">Three</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="5" Background="Yellow">
+                        <Button Margin="2">One</Button>
+                        <Button Margin="2">Two</Button>
+                        <Button Margin="2">Three</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5" Width="100" Background="White">
+                        <TextBlock FontSize="18pt" TextWrapping="Wrap">
+                            Этот текст не переносится, потому что погружен в StackPanel
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </TabItem>
+
+        <!--Имитация пространства Windows Explorer с помощью DockPanel-->
+        <TabItem Header="DockPanel 1">
+            <DockPanel>
+                <Button DockPanel.Dock="Top">Menu Area (Dock=Top)</Button>
+                <Button DockPanel.Dock="Top">ToolBar Area (Dock=Top)</Button>
+                <Button DockPanel.Dock="Left">Folders (Dock=Left)</Button>
+                <Button>
+                    <TextBlock TextWrapping="Wrap" Padding="5pt">
+                        Content (Fills remaining space because LastChildFill="True" - 
+                        последний добавленный элемент заполняет остающееся место, 
+                        потому что LastChildFill="True" по умолчанию). 
+                        Этот текст переносится, потому что погружен в DockPanel
+                    </TextBlock>
+                </Button>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="DockPanel 2">
+            <DockPanel LastChildFill="True">
+                <Button DockPanel.Dock="Top">Menu Area (Dock=Top)</Button>
+                <Button DockPanel.Dock="Left">Folders (Dock=Left)</Button>
+                <Button DockPanel.Dock="Top">ToolBar Area (Dock=Top)</Button>
+                <Button>
+                    <TextBlock TextWrapping="Wrap" FontSize="10pt" Padding="5pt">
+                        Content (Fills remaining space because LastChildFill="True" - 
+                        последний добавленный элемент заполняет остающееся место, 
+                        потому что LastChildFill="True"). Этот текст переносится, 
+                        потому что погружен в DockPanel
+                    </TextBlock>
+                </Button>
+            </DockPanel>
+        </TabItem>
+    </TabControl>
+</Window>

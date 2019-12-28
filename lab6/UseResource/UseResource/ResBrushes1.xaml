@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <TextBlock x:Key="Title1" 
+               TextAlignment="Center"
+               Text="1. Модификация объекта ресурса"
+               FontSize="14" FontWeight="Bold" 
+               FontFamily="Arial"
+               FontStyle="Italic" 
+               TextDecorations="Underline"
+               Foreground="DarkViolet"
+               />
+    <SolidColorBrush x:Key="ForegroundBrush1" 
+                     Color="Blue" />
+    <ImageBrush x:Key="BackgroundBrush1" 
+                TileMode="Tile" 
+                ViewportUnits="Absolute" 
+                Viewport="0 0 10 10"
+                ImageSource="Images/FACE02.ICO" 
+                Opacity="0.5" 
+                />
+</ResourceDictionary>
