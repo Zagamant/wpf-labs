@@ -1,0 +1,27 @@
+﻿<Window x:Class="BindingCommandsCode.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1: Кодовая привязка" Height="300" Width="300"
+    Background="#FFD4D0C8"
+    WindowStartupLocation="CenterScreen"
+    >
+    <StackPanel Margin="5">
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem Command="ApplicationCommands.Open" 
+                          InputGestureText="Alt+O" />
+                <MenuItem Command="ApplicationCommands.Save" 
+                          InputGestureText="Alt+S" />
+
+            </MenuItem>
+        </Menu>
+        <Button Margin="5" Padding="5" Focusable="False"
+                Command="ApplicationCommands.Open" 
+                Content="Open" 
+                />
+        <Button Margin="5" Padding="5" Focusable="False"
+                Command="ApplicationCommands.Save" 
+                Content="Save" 
+                />
+    </StackPanel>
+</Window>

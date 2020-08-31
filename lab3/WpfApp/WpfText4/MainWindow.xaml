@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfText4.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" 
+    Height="300" 
+    Width="300"
+    MinHeight="300"
+    MinWidth="300"    
+    >
+    <FlowDocumentReader 
+        Name="flowDocumentReader" 
+        ViewingMode="Scroll"
+        HorizontalContentAlignment="Left"
+        IsPrintEnabled="False"
+        IsFindEnabled="False" 
+        IsScrollViewEnabled="True" 
+        IsTwoPageViewEnabled="False" 
+        Zoom="75"
+        ScrollViewer.CanContentScroll="True" 
+        ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+        Initialized="flowDocumentReader_Initialized" />
+</Window>
