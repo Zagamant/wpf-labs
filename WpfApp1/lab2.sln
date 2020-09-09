@@ -1,23 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{B37C28F4-61EA-42FC-8202-FBC7BC969EC1}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "WpfApp1\Task1.csproj", "{B37C28F4-61EA-42FC-8202-FBC7BC969EC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp2", "WpfApp2\WpfApp2.csproj", "{9B385A0A-4FDA-443D-AAD2-209B515178B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2", "WpfApp2\Task2.csproj", "{9B385A0A-4FDA-443D-AAD2-209B515178B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp3", "WpfApp3\WpfApp3.csproj", "{D85D00A2-7BC8-4442-B029-12D53058C500}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task3", "WpfApp3\Task3.csproj", "{D85D00A2-7BC8-4442-B029-12D53058C500}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp4", "WpfApp4\WpfApp4.csproj", "{FA8AC18B-4715-4C30-9E73-473318C5F8AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4", "WpfApp4\Task4.csproj", "{FA8AC18B-4715-4C30-9E73-473318C5F8AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp5", "WpfApp5\WpfApp5.csproj", "{EA4BFD59-F829-4E22-A8D5-EBF7EFAFC64D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task5", "WpfApp5\Task5.csproj", "{EA4BFD59-F829-4E22-A8D5-EBF7EFAFC64D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp6", "WpfApp6\WpfApp6.csproj", "{0CEF7B2B-8ECA-4A34-8AD4-B3055880FCE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6", "WpfApp6\Task6.csproj", "{0CEF7B2B-8ECA-4A34-8AD4-B3055880FCE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp8", "WpfApp8\WpfApp8.csproj", "{51512F4C-E0DD-4EF3-9F74-8AC362608879}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task8", "WpfApp8\Task8.csproj", "{51512F4C-E0DD-4EF3-9F74-8AC362608879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp9", "WpfApp9\WpfApp9.csproj", "{8514BC91-6151-4366-9683-9C5205999E4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task9", "WpfApp9\Task9.csproj", "{8514BC91-6151-4366-9683-9C5205999E4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp7", "WpfApp7\WpfApp7.csproj", "{ACF6EE34-8AC1-4186-B2E6-6820B511235D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task7", "WpfApp7\Task7.csproj", "{ACF6EE34-8AC1-4186-B2E6-6820B511235D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,5 +66,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A54D836-5F5B-457C-B45C-45B571E9B1F6}
 	EndGlobalSection
 EndGlobal
