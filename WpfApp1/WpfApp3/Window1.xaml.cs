@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 
-namespace WpfApp3
+namespace Task3
 {
     public partial class Window1 : Window
     {
@@ -31,21 +21,21 @@ namespace WpfApp3
             Canvas.SetTop(thumb1, 5);
         }
 
-        double originalLeft, originalTop;
+        private double _originalLeft, _originalTop;
         private void thumb1_DragStarted(object sender, DragStartedEventArgs e)
         {
-            originalLeft = Canvas.GetLeft(thumb1);
-            originalTop = Canvas.GetTop(thumb1);
+            _originalLeft = Canvas.GetLeft(thumb1);
+            _originalTop = Canvas.GetTop(thumb1);
         }
 
         private void thumb1_DragDelta(object sender, DragDeltaEventArgs e)
         {
-            double left = originalLeft + e.HorizontalChange;
-            double top = originalTop + e.VerticalChange;
+            var left = _originalLeft + e.HorizontalChange;
+            var top = _originalTop + e.VerticalChange;
             Canvas.SetLeft(thumb1, left);
             Canvas.SetTop(thumb1, top);
-            originalLeft = left;
-            originalTop = top;
+            _originalLeft = left;
+            _originalTop = top;
         }
 
         private void btn_Click(object sender, RoutedEventArgs e)
