@@ -8,7 +8,7 @@ namespace Task4
         {
             InitializeComponent();
 
-            textBox.Text = "Привет студентам от Снеткова В.М.!";
+            textBox.Text = "Привет";
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Reflection;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
+﻿using System.Windows.Controls;
 using System.Windows.Navigation;
 using Task1.Pages;
 
@@ -17,7 +13,7 @@ namespace Task1
             Title = "Каркас приложения Упражнения 1";
             //this.ShowsNavigationUI = false;// Скрыть навигационный интерфейс
 
-            var page1 = new Page1();
+            Page page1 = new Page1();
             Content = page1; // Поместили страницу в каркас
         }
     }
