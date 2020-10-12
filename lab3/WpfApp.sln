@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfText1", "WpfText1\WpfText1.csproj", "{08BD6B66-DFF7-463F-AB65-B8348B7A988D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "WpfText1\Task1.csproj", "{08BD6B66-DFF7-463F-AB65-B8348B7A988D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfText2", "WpfText2\WpfText2.csproj", "{FE3AAC7C-F0D0-4EFD-882F-E8E218E186C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2", "WpfText2\Task2.csproj", "{FE3AAC7C-F0D0-4EFD-882F-E8E218E186C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfText3", "WpfText3\WpfText3.csproj", "{88618E23-B824-4C40-9CC8-D31D2642AFD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task3", "WpfText3\Task3.csproj", "{88618E23-B824-4C40-9CC8-D31D2642AFD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfText4", "WpfText4\WpfText4.csproj", "{0BFAE236-DF29-47B9-A378-8371DFA144B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4", "WpfText4\Task4.csproj", "{0BFAE236-DF29-47B9-A378-8371DFA144B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfText5", "WpfText5\WpfText5.csproj", "{D459FFA8-463C-4B98-8D57-B6BB4144BEE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task5", "WpfText5\Task5.csproj", "{D459FFA8-463C-4B98-8D57-B6BB4144BEE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfText6", "WpfText6\WpfText6.csproj", "{16BD48F0-0400-4773-89CA-7A64C73EBD98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6", "WpfText6\Task6.csproj", "{16BD48F0-0400-4773-89CA-7A64C73EBD98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

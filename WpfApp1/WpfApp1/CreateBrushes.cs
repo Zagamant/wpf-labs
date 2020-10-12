@@ -18,7 +18,7 @@ namespace Task1
             //this.ShowsNavigationUI = false;// Скрыть навигационный интерфейс
 
             var page1 = new Page1();
-            Content = page1; // Поместили страницу в каркас
+            Content = page1;
         }
     }
 }

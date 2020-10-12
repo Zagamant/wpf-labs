@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
 
-namespace WpfText3
+namespace Task3
 {
     /// <summary>
     /// Interaction logic for App.xaml

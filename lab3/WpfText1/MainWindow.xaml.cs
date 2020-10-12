@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace WpfText1
+namespace Task1
 {
     public partial class MainWindow : Window
     {
@@ -20,7 +13,7 @@ namespace WpfText1
             InitializeComponent();
 
             // Заполняем коллекции и подключаем их к спискам ListBox
-            this.fontFamilyListBox.ItemsSource = FontPropertyLists.FontFaces;
+            this.FontFamilyListBox.ItemsSource = FontPropertyLists.FontFaces;
             this.fontWeightListBox.ItemsSource = FontPropertyLists.FontWeights;
             this.fontSizeListBox.ItemsSource = FontPropertyLists.FontSizes;
 
@@ -30,27 +23,27 @@ namespace WpfText1
         }
 
         // Сокрытие унаследованных от Window одноименных свойств
-        new public FontFamily FontFamily
+        public new FontFamily FontFamily
         {
-            get { return (FontFamily)this.fontFamilyListBox.SelectedItem; }
+            get => (FontFamily)FontFamilyListBox.SelectedItem;
             set
             {
-                this.fontFamilyListBox.SelectedItem = value;    // Выделить
-                this.fontFamilyListBox.ScrollIntoView(value);   // Прокрутить до видимого
+                FontFamilyListBox.SelectedItem = value;    // Выделить
+                FontFamilyListBox.ScrollIntoView(value);   // Прокрутить до видимого
             }
         }
-        new public FontWeight FontWeight
+        public new FontWeight FontWeight
         {
-            get { return (FontWeight)this.fontWeightListBox.SelectedItem; }
+            get => (FontWeight)this.fontWeightListBox.SelectedItem;
             set
             {
                 this.fontWeightListBox.SelectedItem = value;    // Выделить
                 this.fontWeightListBox.ScrollIntoView(value);   // Прокрутить до видимого
             }
         }
-        new public double FontSize
+        public new double FontSize
         {
-            get { return (double)this.fontSizeListBox.SelectedItem; }
+            get => (double)this.fontSizeListBox.SelectedItem;
             set
             {
                 this.fontSizeListBox.SelectedItem = value;      // Выделить
@@ -61,23 +54,22 @@ namespace WpfText1
         private void fontFamilyTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Привести ListBox в соответствие с содержимым TextBox
-            this.FontFamily = new FontFamily(this.fontFamilyTextBox.Text);
+            this.FontFamily = new FontFamily(this.FontFamilyTextBox.Text);
         }
 
         private void fontWeightTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Привести ListBox в соответствие с содержимым TextBox
-            if (FontPropertyLists.CanParseFontWeight(this.fontWeightTextBox.Text))
+            if (FontPropertyLists.CanParseFontWeight(this.FontWeightTextBox.Text))
             {
-                this.FontWeight = FontPropertyLists.ParseFontWeight(this.fontWeightTextBox.Text);
+                this.FontWeight = FontPropertyLists.ParseFontWeight(this.FontWeightTextBox.Text);
             }
         }
 
         private void fontSizeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Привести ListBox в соответствие с содержимым TextBox
-            double fontSize;
-            if (double.TryParse(this.fontSizeTextBox.Text, out fontSize))
+            if (double.TryParse(this.fontSizeTextBox.Text, out var fontSize))
             {
                 this.FontSize = fontSize;   // В поле действительно число
             }
@@ -86,12 +78,18 @@ namespace WpfText1
         private void text_Initialized(object sender, EventArgs e)
         {
             // Добавляем в TextBlock строку
-            Run run = new Run("\nDynamic");
-            run.FontFamily = new FontFamily("Curlz MT");
+            var run = new Run("\nDynamic")
+            {
+	            FontFamily = new FontFamily("Curlz MT")
+            };
+            
             text.Inlines.Add(run);
-            run = new Run("Text");
-            run.FontFamily = new FontFamily("Comic Sans MS");
-            run.Foreground = Brushes.Aqua;
+
+            run = new Run("Text")
+            {
+	            FontFamily = new FontFamily("Comic Sans MS"), Foreground = Brushes.Aqua
+            };
+
             text.Inlines.Add(new Bold(run));
         }
 
@@ -100,15 +98,15 @@ namespace WpfText1
             textBox.Text = passwordBox.Password;
         }
 
-        bool flagState = true;
-        Brush color;
+        private bool _flagState = true;
+        private Brush _color;
         private void toggleButton_Checked(object sender, RoutedEventArgs e)
         {
             // Сохраняем первоначальный цвет кнопки 
-            if (flagState)
+            if (_flagState)
             {
-                color = toggleButton.Background;
-                flagState = false;
+                _color = toggleButton.Background;
+                _flagState = false;
             }
 
             if (toggleButton.IsChecked == true)
@@ -119,7 +117,7 @@ namespace WpfText1
             else
             {
                 passwordBox.IsEnabled = true;
-                toggleButton.Background = color;
+                toggleButton.Background = _color;
             }
         }
 

@@ -7,8 +7,7 @@ namespace Task9
 {
     internal class CustomPanel : Panel
     {
-        // Измерение
-        //
+
         // На входе - сколько есть у родителя для менеджера
         // На выходе - сколько просит менеджер для себя
         protected override Size MeasureOverride(Size availableSize)
@@ -24,32 +23,32 @@ namespace Task9
                 maxChildHeight = Math.Max(child.DesiredSize.Height, maxChildHeight);
             }
 
-            // Приблизительный несовершенный алгоритм
-            //
             // Требуемая для размещения всех элементов длина окружности
             var idealCircumference =
                 maxChildWidth * this.InternalChildren.Count;
+
             // Требуемый радиус окружности
             var idealRadius =
                 (idealCircumference / (Math.PI * 2) + maxChildHeight);
+
             // Необходимые размеры описывающего окружность квадрата
             var ideal = new Size(idealRadius * 2, idealRadius * 2);
 
-            var desired = ideal;// Менеджер столько хочет для себя
-            // Если выделяемый менеджеру размер небесконечен
+            var desired = ideal;
+            
             if(!double.IsInfinity(availableSize.Width))
             {
-                // Если требуемого размера менеджеру нехватает
                 if(availableSize.Width < desired.Width)
                 {
-                    // Корректируем размер менеджера
                     desired.Width = availableSize.Width;
                 }
             }
-            // То же самое и для высоты
-            if (double.IsInfinity(availableSize.Height)) 
-                return desired;
-            
+
+            if (double.IsInfinity(availableSize.Height))
+            {
+	            return desired;
+            }
+
             if(availableSize.Height < desired.Height)
             {
                 desired.Height = availableSize.Height;
@@ -58,14 +57,9 @@ namespace Task9
             return desired;
         }
 
-        // Установка (заключение контракта)
-        //
-        // Делим отведенную для менеджера площадь
         protected override Size ArrangeOverride(Size finalSize)
         {
-            // Размещаем квадратный менеджер в
-            // центре выделенной родителем области
-            Rect layoutRect;
+	        Rect layoutRect;
             if(finalSize.Width > finalSize.Height)
             {
                 layoutRect = new Rect(
@@ -100,7 +94,6 @@ namespace Task9
                     child.DesiredSize.Width / 2,
                     finalSize.Height / 2 - layoutRect.Top);
 
-                // Утвердили окончательный размер и положение потомка
                 child.Arrange(new Rect(childLocation, child.DesiredSize));
 
                 angle += angleInc;

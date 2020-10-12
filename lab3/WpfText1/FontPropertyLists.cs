@@ -1,97 +1,77 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Media;
 
-namespace WpfText1
+namespace Task1
 {
-    /// <summary>
-    /// Код класса из примера MSDN
-    /// </summary>
-    public class FontPropertyLists
+	public class FontPropertyLists
     {
-        static Collection<FontFamily> fontFaces;
-        static Collection<FontWeight> fontWeights;
-        static Collection<double> fontSizes;
-        static int maxFontSizes = 36;
+	    public static ICollection<FontFamily> FontFaces { get; set; }
+	    public static Collection<FontWeight> FontWeights { get; set; }
+	    public static ICollection<double> FontSizes { get; set; }
 
-        /// <summary>
-        /// Заполняет коллекцию доступных системе FontFamily
-        /// </summary>
-        public static ICollection<FontFamily> FontFaces
+	    static readonly int maxFontSizes = 36;
+
+        static FontPropertyLists()
         {
-            get
-            {
-                if (fontFaces == null) fontFaces = new Collection<FontFamily>();
-                foreach (FontFamily fontFamily in Fonts.SystemFontFamilies)
-                {
-                    fontFaces.Add(fontFamily);
-                }
-                return fontFaces;
-            }
+	        if (FontFaces == null)
+	        {
+		        FontFaces = new Collection<FontFamily>();
+
+		        foreach (var fontFamily in Fonts.SystemFontFamilies)
+		        {
+			        FontFaces.Add(fontFamily);
+		        }
+	        }
+
+
+	        if (FontWeights == null)
+	        {
+		        FontWeights = new Collection<FontWeight>();
+
+		        Unique(System.Windows.FontWeights.Thin);
+		        Unique(System.Windows.FontWeights.Light);
+		        Unique(System.Windows.FontWeights.Regular);
+		        Unique(System.Windows.FontWeights.Normal);
+		        Unique(System.Windows.FontWeights.Medium);
+		        Unique(System.Windows.FontWeights.Heavy);
+		        Unique(System.Windows.FontWeights.SemiBold);
+		        Unique(System.Windows.FontWeights.DemiBold);
+		        Unique(System.Windows.FontWeights.Bold);
+		        Unique(System.Windows.FontWeights.Black);
+		        Unique(System.Windows.FontWeights.ExtraLight);
+		        Unique(System.Windows.FontWeights.ExtraBold);
+		        Unique(System.Windows.FontWeights.ExtraBlack);
+		        Unique(System.Windows.FontWeights.UltraLight);
+		        Unique(System.Windows.FontWeights.UltraBold);
+		        Unique(System.Windows.FontWeights.UltraBlack);
+
+	        }
+
+	        if (FontSizes == null)
+	        {
+		        FontSizes = new Collection<double>();
+
+		        for (double i = 8; i <= maxFontSizes; i++)
+		        {
+			        FontSizes.Add(i);
+		        }
+	        }
         }
 
-        /// <summary>
-        /// Заполняет коллекцию доступных FontWeight
-        /// </summary>
-        public static ICollection FontWeights
+        private static void Unique(FontWeight fontWeight)
         {
-            get
-            {
-                if (fontWeights == null)
-                {
-                    fontWeights = new Collection<FontWeight>();
-
-                    Unique(System.Windows.FontWeights.Thin);
-                    Unique(System.Windows.FontWeights.Light);
-                    Unique(System.Windows.FontWeights.Regular);
-                    Unique(System.Windows.FontWeights.Normal);
-                    Unique(System.Windows.FontWeights.Medium);
-                    Unique(System.Windows.FontWeights.Heavy);
-                    Unique(System.Windows.FontWeights.SemiBold);
-                    Unique(System.Windows.FontWeights.DemiBold);
-                    Unique(System.Windows.FontWeights.Bold);
-                    Unique(System.Windows.FontWeights.Black);
-                    Unique(System.Windows.FontWeights.ExtraLight);
-                    Unique(System.Windows.FontWeights.ExtraBold);
-                    Unique(System.Windows.FontWeights.ExtraBlack);
-                    Unique(System.Windows.FontWeights.UltraLight);
-                    Unique(System.Windows.FontWeights.UltraBold);
-                    Unique(System.Windows.FontWeights.UltraBlack);
-                }
-                return fontWeights;
-            }
+            if (FontWeights.IndexOf(fontWeight) == -1)
+                FontWeights.Add(fontWeight);
         }
 
-        static void Unique(FontWeight fontWeight)
-        {
-            if (fontWeights.IndexOf(fontWeight) == -1)
-                fontWeights.Add(fontWeight);
-        }
-
-        /// <summary>
-        /// Заполняет коллекцию доступных FontSizes 
-        /// </summary>
-        public static Collection<double> FontSizes
-        {
-            get
-            {
-                if (fontSizes == null)
-                {
-                    fontSizes = new Collection<double>();
-                    for (double i = 8; i <= maxFontSizes; i++) fontSizes.Add(i);
-                }
-                return fontSizes;
-            }
-        }
 
         public static bool CanParseFontWeight(string fontWeightName)
         {
             try
             {
-                FontWeightConverter converter = new FontWeightConverter();
+                var converter = new FontWeightConverter();
                 converter.ConvertFromString(fontWeightName);
                 return true;
             }
@@ -102,7 +82,8 @@ namespace WpfText1
         }
         public static FontWeight ParseFontWeight(string fontWeightName)
         {
-            FontWeightConverter converter = new FontWeightConverter();
+            var converter = new FontWeightConverter();
+
             return (FontWeight)converter.ConvertFromString(fontWeightName);
         }
     }

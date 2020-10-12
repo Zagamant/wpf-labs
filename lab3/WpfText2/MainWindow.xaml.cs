@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-using System.Windows.Markup;
 using System.IO;
+using System.Windows;
+using System.Windows.Documents;
+using System.Windows.Markup;
 
-namespace WpfText2
+namespace Task2
 {
     public partial class MainWindow : Window
     {
@@ -32,10 +22,10 @@ namespace WpfText2
         }
 
         // Альтернативный вариант
-        void LoadFlowDocumentScrollViewerWithXAMLFile(string fileName)
+        private void LoadFlowDocumentScrollViewerWithXamlFile(string fileName)
         {
-            FileStream xamlFile = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            FlowDocument content = XamlReader.Load(xamlFile) as FlowDocument;
+            var xamlFile = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            var content = XamlReader.Load(xamlFile) as FlowDocument;
             documentReader.Document = content;
 
             xamlFile.Close();
