@@ -7,6 +7,10 @@ namespace Task3
 {
     public partial class Window1 : Window
     {
+
+        private double  _originalLeft, 
+                        _originalTop;
+
         public Window1()
         {
             InitializeComponent();
@@ -21,7 +25,6 @@ namespace Task3
             Canvas.SetTop(thumb1, 5);
         }
 
-        private double _originalLeft, _originalTop;
         private void thumb1_DragStarted(object sender, DragStartedEventArgs e)
         {
             _originalLeft = Canvas.GetLeft(thumb1);

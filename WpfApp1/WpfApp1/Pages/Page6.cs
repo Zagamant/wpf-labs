@@ -9,11 +9,9 @@ namespace Task1.Pages
         {
             WindowTitle = "Page6: Радиальный градиент";
 
-            // Создание и присоединение градиента
             var brush = new RadialGradientBrush();
             Background = brush;
 
-            // Цвета радуги
             brush.GradientStops.Add(new GradientStop(Colors.Red, 0));
             brush.GradientStops.Add(new GradientStop(Colors.Orange, .17));
             brush.GradientStops.Add(new GradientStop(Colors.Yellow, .33));

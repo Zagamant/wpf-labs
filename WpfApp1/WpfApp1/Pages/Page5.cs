@@ -6,8 +6,7 @@ namespace Task1.Pages
 {
     internal class Page5 : Page
     {
-        // Переход на следующую страницу
-        private Page6 _page6;
+        private Page6 Page6 { get; set; }
 
         public Page5()
         {
@@ -18,14 +17,12 @@ namespace Task1.Pages
             btn.Content = "Next Page6";
             btn.Click += btn5_Click;
 
-            // Создание и присоединение градиента
             var brush = new LinearGradientBrush();
             btn.Background = brush;
 
             brush.StartPoint = new Point(0, 0);
             brush.EndPoint = new Point(1, 0);
 
-            // Цвета радуги
             brush.GradientStops.Add(new GradientStop(Colors.Red, 0));
             brush.GradientStops.Add(new GradientStop(Colors.Orange, .17));
             brush.GradientStops.Add(new GradientStop(Colors.Yellow, .33));
@@ -38,8 +35,8 @@ namespace Task1.Pages
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
             if(!NavigationService.CanGoForward)
-                _page6 = new Page6(); // Создаем только один раз 
-            NavigationService.Navigate(_page6);
+                Page6 = new Page6(); 
+            NavigationService.Navigate(Page6);
         }
     }
 }

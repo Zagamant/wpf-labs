@@ -6,8 +6,7 @@ namespace Task1.Pages
 {
     internal class Page3 : Page
     {
-        // Переход на следующую страницу
-        private Page4 _page4;
+        private Page Page4 { get; set; }
 
         public Page3()
         {
@@ -20,7 +19,6 @@ namespace Task1.Pages
             btn.Click += btn3_Click;
             Content = btn;
 
-            // Создание и присоединение градиента
             var brush = new LinearGradientBrush(
                 Colors.Red, Colors.Blue, new Point(0, 0), new Point(1, 1));
             btn.Background = brush;
@@ -29,8 +27,8 @@ namespace Task1.Pages
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
             if(!NavigationService.CanGoForward)
-                _page4 = new Page4(); // Создаем только один раз 
-            NavigationService.Navigate(_page4);
+                Page4 = new Page4();
+            NavigationService.Navigate(Page4);
         }
     }
 
