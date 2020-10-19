@@ -18,6 +18,7 @@
             <Button>Четвертый</Button>
             <Button>Пятый</Button>
             <Button>Шестой</Button>
+            <Button>Шестой.5</Button>
             <Button>Седьмой</Button>
         </task9:CustomPanel>
     </Border>

@@ -26,27 +26,30 @@ namespace Task9
                 maxChildHeight = Math.Max(child.DesiredSize.Height, maxChildHeight);
             }
 
+            
             var idealCircumference =
-                maxChildWidth * InternalChildren.Count;
-
+                maxChildWidth * this.InternalChildren.Count;
+            
+            // Требуемый радиус
             var idealRadius =
-                idealCircumference / (Math.PI * 2) + maxChildHeight;
-
+                (idealCircumference / (Math.PI * 2) + maxChildHeight);
+            
             var ideal = new Size(idealRadius * 2, idealRadius * 2);
 
-            var desired = ideal; 
+            var desired = ideal;
 
-            if (!double.IsInfinity(availableSize.Width) && availableSize.Width < desired.Width)
+            if(!double.IsInfinity(availableSize.Width))
             {
-                desired.Width = availableSize.Width;
+                if(availableSize.Width < desired.Width)
+                {
+                    desired.Width = availableSize.Width;
+                }
             }
-
-            if (double.IsInfinity(availableSize.Height))
-            {
+            
+            if (double.IsInfinity(availableSize.Height)) 
                 return desired;
-            }
-
-            if (availableSize.Height < desired.Height)
+            
+            if(availableSize.Height < desired.Height)
             {
                 desired.Height = availableSize.Height;
             }
@@ -54,17 +57,10 @@ namespace Task9
             return desired;
         }
 
-        /// <summary>
-        /// Установка (заключение контракта)
-        /// Делится отведенная для менеджера площадь
-        /// </summary>
-        /// <param name="finalSize"></param>
-        /// <returns></returns>
         protected override Size ArrangeOverride(Size finalSize)
         {
-
             Rect layoutRect;
-            if (finalSize.Width > finalSize.Height)
+            if(finalSize.Width > finalSize.Height)
             {
                 layoutRect = new Rect(
                     (finalSize.Width - finalSize.Height) / 2,
@@ -84,7 +80,6 @@ namespace Task9
             var angleInc = 360.0 / InternalChildren.Count;
             var angle = 0.0;
 
-            // Расставляем по кругу все дочерние элементы
             foreach (UIElement child in InternalChildren)
             {
                 var childLocation = new Point(

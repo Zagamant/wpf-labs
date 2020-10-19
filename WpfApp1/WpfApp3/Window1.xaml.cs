@@ -33,12 +33,14 @@ namespace Task3
 
         private void thumb1_DragDelta(object sender, DragDeltaEventArgs e)
         {
-            var left = _originalLeft + e.HorizontalChange;
-            var top = _originalTop + e.VerticalChange;
-            Canvas.SetLeft(thumb1, left);
-            Canvas.SetTop(thumb1, top);
-            _originalLeft = left;
-            _originalTop = top;
+	        var left = _originalLeft + e.HorizontalChange;
+	        var top = _originalTop + e.VerticalChange;
+	        left = (left > this.ActualWidth - 50) ? (this.ActualWidth - 50) : left;
+	        top = top > this.ActualHeight - 50 ? this.ActualHeight - 50 : top;
+	        Canvas.SetLeft(thumb1, left);
+	        Canvas.SetTop(thumb1, top);
+	        _originalLeft = left;
+	        _originalTop = top;
         }
 
         private void btn_Click(object sender, RoutedEventArgs e)
