@@ -13,7 +13,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <WebBrowser Grid.Row="0" Name="webBrowser1" />
+                <WebBrowser Grid.Row="0" Name="WebBrowser1" />
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Width="75" Content="Back" Click="backButton_Click" Margin="0,5,0,0" />
                     <Button Width="75" Content="Load" Click="loadButton_Click" Margin="5,5,5,0" />
@@ -23,11 +23,11 @@
         </TabItem>
         
         <TabItem Header="HTML2">
-            <WebBrowser x:Name="webBrowser2" Initialized="webBrowser2_Initialized" />
+            <WebBrowser x:Name="WebBrowser2" Initialized="webBrowser2_Initialized" />
         </TabItem>
 
         <TabItem Header="HTML3">
-            <WebBrowser x:Name="webBrowser3" Initialized="webBrowser3_Initialized" />
+            <WebBrowser x:Name="WebBrowser3" Initialized="webBrowser3_Initialized" />
         </TabItem>
     </TabControl>
 </Window>

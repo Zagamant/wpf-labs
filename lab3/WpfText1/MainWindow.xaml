@@ -105,14 +105,14 @@
 
                     <!--Анимация градиентной подсветки внешнего контура Border-->
                     <Border.BitmapEffect>
-                        <OuterGlowBitmapEffect x:Name="glow" GlowColor="Yellow" GlowSize="0" />
+                        <OuterGlowBitmapEffect x:Name="Glow" GlowColor="Yellow" GlowSize="0" />
                     </Border.BitmapEffect>
                     <Border.Triggers>
                         <EventTrigger RoutedEvent="Border.Loaded">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation 
-                                        Storyboard.TargetName="glow"
+                                        Storyboard.TargetName="Glow"
                                         Storyboard.TargetProperty="GlowSize"
                                         From="30" To="0" Duration="0:0:1" 
                                         AutoReverse="True"

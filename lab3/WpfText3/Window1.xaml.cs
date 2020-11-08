@@ -1,57 +1,55 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
+using Microsoft.Win32;
 
 namespace Task3
 {
-    public partial class Window1 : Window
-    {
-        public Window1()
-        {
-            InitializeComponent();
-        }
-    
-        private void loadButton_Click(object sender, RoutedEventArgs e)
-        {
-            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            openFileDialog.Filter = "HTML Documents (*.htm; *.html)|*.htm;*.html";
-            openFileDialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
-            openFileDialog.Multiselect=false;
-            if (openFileDialog.ShowDialog() == false || openFileDialog.FileName == String.Empty)
-                return;
-    
-            Uri uri = new Uri(openFileDialog.FileName);
-            this.webBrowser1.Source = uri;
-        }
-    
-        private void backButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.webBrowser1.CanGoBack)
-            {
-                this.webBrowser1.GoBack();
-            }
-        }
-    
-        private void forwardButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.webBrowser1.CanGoForward)
-            {
-                this.webBrowser1.GoForward();
-            }
-        }
+	public partial class Window1 : Window
+	{
+		public Window1()
+		{
+			InitializeComponent();
+		}
 
-        private void webBrowser2_Initialized(object sender, EventArgs e)
-        {
-            Uri uri = new Uri(System.IO.Directory.GetCurrentDirectory() + "\\HtmlDoc.html", UriKind.Absolute);
-    
-            this.webBrowser2.Navigate(uri);
-        }
+		private void loadButton_Click(object sender, RoutedEventArgs e)
+		{
+			var openFileDialog = new OpenFileDialog
+			{
+				Filter = "HTML Documents (*.htm; *.html)|*.htm;*.html",
+				InitialDirectory = Directory.GetCurrentDirectory(),
+				Multiselect = false
+			};
+			if (openFileDialog.ShowDialog() == false || openFileDialog.FileName == string.Empty)
+				return;
 
-        private void webBrowser3_Initialized(object sender, EventArgs e)
-        {
-            Uri uri = new Uri("HtmlDoc.html", UriKind.Relative);
-            System.IO.Stream source = Application.GetRemoteStream(uri).Stream;
+			var uri = new Uri(openFileDialog.FileName);
+			WebBrowser1.Source = uri;
+		}
 
-            this.webBrowser3.NavigateToStream(source);
-        }
-    }
+		private void backButton_Click(object sender, RoutedEventArgs e)
+		{
+			if (WebBrowser1.CanGoBack) WebBrowser1.GoBack();
+		}
+
+		private void forwardButton_Click(object sender, RoutedEventArgs e)
+		{
+			if (WebBrowser1.CanGoForward) WebBrowser1.GoForward();
+		}
+
+		private void webBrowser2_Initialized(object sender, EventArgs e)
+		{
+			var uri = new Uri(Directory.GetCurrentDirectory() + "\\HtmlDoc.html", UriKind.Absolute);
+
+			WebBrowser2.Navigate(uri);
+		}
+
+		private void webBrowser3_Initialized(object sender, EventArgs e)
+		{
+			var uri = new Uri("HtmlDoc.html", UriKind.Relative);
+			var source = Application.GetRemoteStream(uri).Stream;
+
+			WebBrowser3.NavigateToStream(source);
+		}
+	}
 }
