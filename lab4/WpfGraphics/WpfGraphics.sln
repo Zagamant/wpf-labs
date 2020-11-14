@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{C7CBEF92-9878-4961-A9E8-8EF3FC6DD44C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "WpfApp1\Task1.csproj", "{C7CBEF92-9878-4961-A9E8-8EF3FC6DD44C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullScreen", "FullScreen\FullScreen.csproj", "{5FD0ABDB-D679-4B5C-B51F-232A48B9B29B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2", "FullScreen\Task2.csproj", "{5FD0ABDB-D679-4B5C-B51F-232A48B9B29B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp3", "WpfApp3\WpfApp3.csproj", "{2F9FD550-4F9D-4488-9861-15E86DDF97B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task3_1", "WpfApp3\Task3_1.csproj", "{2F9FD550-4F9D-4488-9861-15E86DDF97B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp32", "WpfApp32\WpfApp32.csproj", "{368BE15D-F494-4D54-B3FC-8D5CA3DD71A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task3_2", "WpfApp32\Task3_2.csproj", "{368BE15D-F494-4D54-B3FC-8D5CA3DD71A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

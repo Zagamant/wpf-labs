@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfApp32.MainWindow"
+﻿<Window x:Class="Task3.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Главное окно Window1: Работа объекта ImageDrawing через процедурный код"

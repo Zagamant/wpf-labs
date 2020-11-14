@@ -3,15 +3,15 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms; // Для перечисления Keys 
 
-namespace FullScreen
+namespace Task2
 {
 	internal class HookSystemKeys
 	{
 		private const int WhKeyboardLl = 13;
 		private const int WmKeyup = 257; // Отпускание любой клавиши
 
-		private static readonly LowLevelKeyboardProc _proc = HookCallback;
-		private static IntPtr _hookID = IntPtr.Zero;
+		private static readonly LowLevelKeyboardProc Proc = HookCallback;
+		private static IntPtr _hookId = IntPtr.Zero;
 
 		// Поддержка флагов состояния системных клавиш 
 		private static bool _ctrlKey, _altKey, _winKey;
@@ -38,12 +38,12 @@ namespace FullScreen
 		// Общедоступная упаковка оригинала
 		public static void FunHook()
 		{
-			_hookID = SetHook(_proc);
+			_hookId = SetHook(Proc);
 		}
 
 		public static void FunUnHook()
 		{
-			UnhookWindowsHookEx(_hookID);
+			UnhookWindowsHookEx(_hookId);
 		}
 
 		private static IntPtr SetHook(LowLevelKeyboardProc proc)
@@ -65,7 +65,7 @@ namespace FullScreen
 			    || _altKey && (Keys) vkCode == Keys.Escape // Alt+Esc
 			    || _altKey && (Keys) vkCode == Keys.Tab) // Alt+Tab
 				return (IntPtr) 1;
-			return CallNextHookEx(_hookID, nCode, wParam, lParam);
+			return CallNextHookEx(_hookId, nCode, wParam, lParam);
 		}
 
 		//установить подключаемую процедуру для мониторинга системы для определенных типов событий

@@ -1,88 +1,78 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace FullScreen
+namespace Task2
 {
-    public partial class MainWindow : Window
-    {
-        // Объявляем как поля для видимости в функциях
-        bool fullScreen = false;// Состояние экрана
-        WindowStyle windowStyle;
-        WindowState windowState;
-        ResizeMode resizeMode;
+	public partial class MainWindow : Window
+	{
+		// Объявляем как поля для видимости в функциях
+		private bool _fullScreen; // Состояние экрана
+		private ResizeMode _resizeMode;
+		private WindowState _windowState;
+		private WindowStyle _windowStyle;
 
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+		public MainWindow()
+		{
+			InitializeComponent();
+		}
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            // Запоминаем начальные параметры окна
-            windowState = this.WindowState;
-            windowStyle = this.WindowStyle;
-            resizeMode = System.Windows.ResizeMode.CanResizeWithGrip;
-            this.ResizeMode = resizeMode;
-            changeScreen.Header = "FullScreen";
-        }
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+			// Запоминаем начальные параметры окна
+			_windowState = WindowState;
+			_windowStyle = WindowStyle;
+			_resizeMode = ResizeMode.CanResizeWithGrip;
+			ResizeMode = _resizeMode;
+			ChangeScreen.Header = "FullScreen";
+		}
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            FullScreen();
-        }
+		private void MenuItem_Click(object sender, RoutedEventArgs e)
+		{
+			FullScreen();
+		}
 
-        private void FullScreen()
-        {
-            if (!fullScreen)// Переходим в полноэкранный режим 
-            {
-                if (this.WindowState == WindowState.Maximized)
-                {
-                    // Чтобы скрыть панель задач и не было мерцания
-                    this.Hide();
-                    this.WindowState = WindowState.Normal;
-                }
+		private void FullScreen()
+		{
+			if (!_fullScreen) // Переходим в полноэкранный режим 
+			{
+				if (WindowState == WindowState.Maximized)
+				{
+					// Чтобы скрыть панель задач и не было мерцания
+					Hide();
+					WindowState = WindowState.Normal;
+				}
 
-                App.Current.MainWindow.WindowStyle = WindowStyle.None;// Без заголовка
-                App.Current.MainWindow.Topmost = true;      // На передний план
-                App.Current.MainWindow.WindowState = WindowState.Maximized;// Развернуть
-                App.Current.MainWindow.ResizeMode = ResizeMode.NoResize;// Неизменяемое
+				Application.Current.MainWindow.WindowStyle = WindowStyle.None; // Без заголовка
+				Application.Current.MainWindow.Topmost = true; // На передний план
+				Application.Current.MainWindow.WindowState = WindowState.Maximized; // Развернуть
+				Application.Current.MainWindow.ResizeMode = ResizeMode.NoResize; // Неизменяемое
 
-                menu.Visibility = Visibility.Collapsed;// Скрываем меню
-                HookSystemKeys.FunHook();// Запрещаем системные клавиши
-                this.Visibility = Visibility.Visible;
+				Menu.Visibility = Visibility.Collapsed; // Скрываем меню
+				HookSystemKeys.FunHook(); // Запрещаем системные клавиши
+				Visibility = Visibility.Visible;
 
-                fullScreen = true;
-                changeScreen.Header = "WindowScreen";
-            }
-            else // Восстанавливаем оконный режим
-            {
-                this.WindowStyle = windowStyle;
-                this.Topmost = false;
-                this.WindowState = windowState;
-                this.ResizeMode = resizeMode;
+				_fullScreen = true;
+				ChangeScreen.Header = "WindowScreen";
+			}
+			else // Восстанавливаем оконный режим
+			{
+				WindowStyle = _windowStyle;
+				Topmost = false;
+				WindowState = _windowState;
+				ResizeMode = _resizeMode;
 
-                menu.Visibility = Visibility.Visible;// Показываем меню
-                HookSystemKeys.FunUnHook();// Освобождаем системные клавиши
+				Menu.Visibility = Visibility.Visible; // Показываем меню
+				HookSystemKeys.FunUnHook(); // Освобождаем системные клавиши
 
-                fullScreen = false;
-                changeScreen.Header = "FullScreen";
-            }
-        }
+				_fullScreen = false;
+				ChangeScreen.Header = "FullScreen";
+			}
+		}
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Escape)
-                this.Close();
-        }
-    }
+		private void Window_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Key == Key.Escape)
+				Close();
+		}
+	}
 }
