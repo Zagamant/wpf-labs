@@ -83,14 +83,14 @@ namespace Task1
 	            FontFamily = new FontFamily("Curlz MT")
             };
             
-            text.Inlines.Add(run);
+            Text.Inlines.Add(run);
 
             run = new Run("Text")
             {
 	            FontFamily = new FontFamily("Comic Sans MS"), Foreground = Brushes.Aqua
             };
 
-            text.Inlines.Add(new Bold(run));
+            Text.Inlines.Add(new Bold(run));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
