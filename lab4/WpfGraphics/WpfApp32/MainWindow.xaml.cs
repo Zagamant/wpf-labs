@@ -119,18 +119,18 @@ namespace Task3
 			_wnd2.Show();
 		}
 
-		// Предотвращение повторного открытия окна: Способ 2
-		// Обработчик контекстного меню
 		private void Create_Window2(object sender, RoutedEventArgs e)
 		{
 			var windowExists = false;
 			foreach (Window window in Application.Current.Windows)
+			{
 				if (window.Name == "Window_2")
 				{
 					windowExists = true;
 					window.Activate(); // Сдвинуть на передний план
 					break;
 				}
+			}
 
 			if (windowExists) return;
 			_wnd2 = new Window2();

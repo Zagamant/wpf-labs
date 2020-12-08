@@ -8,7 +8,7 @@ namespace Task1
 {
 	public partial class MainWindow : Window
 	{
-		private const int CountDot  = 20;
+		private const int CountDot = 20;
 
 		private readonly List<double[]> _dataList = new List<double[]>();
 
@@ -31,31 +31,35 @@ namespace Task1
 		{
 			var sin = new double[CountDot + 1];
 			var cos = new double[CountDot + 1];
-			var points = new double[CountDot + 1];
+			var x3 = new double[CountDot + 1];
+			var x4 = new double[CountDot + 1];
 
 			for (var i = 0; i < sin.Length; i++)
 			{
 				var angle = Math.PI * 2 / CountDot * i;
 				sin[i] = Math.Sin(angle);
 				cos[i] = Math.Cos(angle);
-				points[i] = Math.Cosh(angle) - 1;
+				x3[i] = i - 1;
+				x4[i] = i + 1;
 			}
 
 			_dataList.Add(sin);
 			_dataList.Add(cos);
-			_dataList.Add(points);
+			_dataList.Add(x3);
+			_dataList.Add(x4);
 		}
 
 		[Obsolete]
 		private void Execute()
 		{
-			BackgroundFun(); 
-			GridFun(); 
-			SinFun(); 
-			CosFun(); 
-			PointsFun();
-			MarkerFun(); 
-			
+			BackgroundFun();
+			GridFun();
+			SinFun();
+			CosFun();
+			X3Fun();
+			X4Fun();
+			//PointsFun();
+			MarkerFun();
 		}
 
 		// Фон
@@ -86,7 +90,7 @@ namespace Task1
 
 			var geometryDrawing = new GeometryDrawing
 			{
-				Geometry = geometryGroup, 
+				Geometry = geometryGroup,
 				Pen = new Pen(Brushes.Tan, 0.003)
 			};
 
@@ -136,7 +140,7 @@ namespace Task1
 
 			var geometryDrawing = new GeometryDrawing
 			{
-				Geometry = geometryGroup, 
+				Geometry = geometryGroup,
 				Pen = new Pen(Brushes.Blue, 0.005)
 			};
 
@@ -150,14 +154,17 @@ namespace Task1
 			var geometryGroup = new GeometryGroup();
 			for (var i = 0; i < _dataList[1].Length; i++)
 			{
-				var ellipsis = new EllipseGeometry(new Point(i / (double) CountDot, 0.5 - _dataList[1][i] / 2.0), 0.01,
+				var ellipsis = new EllipseGeometry(
+					new Point(
+						i / (double) CountDot, 
+						0.5 - _dataList[1][i] / 2.0), 0.01,
 					0.01);
 				geometryGroup.Children.Add(ellipsis);
 			}
 
 			var geometryDrawing = new GeometryDrawing
 			{
-				Geometry = geometryGroup, 
+				Geometry = geometryGroup,
 				Pen = new Pen(Brushes.Teal, 0.005)
 			};
 
@@ -189,9 +196,56 @@ namespace Task1
 
 			var geometryDrawing = new GeometryDrawing
 			{
-				Geometry = geometryGroup, 
-				Brush = Brushes.Wheat, 
+				Geometry = geometryGroup,
+				Brush = Brushes.Wheat,
 				Pen = new Pen(Brushes.DarkGoldenrod, 0.003)
+			};
+
+
+			_drawingGroup.Children.Add(geometryDrawing);
+		}
+
+
+		//(x-1) ^3
+
+		[Obsolete]
+		private void X3Fun()
+		{
+			var geometryGroup = new GeometryGroup();
+			for (var i = 0; i < 2; i++)
+			{
+				var line = new LineGeometry(
+					new Point(i / (double)CountDot, .5 -Math.Pow(_dataList[2][i], 3) / 2),
+					new Point((i + 1) / (double)CountDot,  .5- Math.Pow( _dataList[2][i + 1],3)/2)
+				);
+				geometryGroup.Children.Add(line);
+			}
+
+			var geometryDrawing = new GeometryDrawing
+			{
+				Geometry = geometryGroup, Pen = new Pen(Brushes.Black, 0.005)
+			};
+
+
+			_drawingGroup.Children.Add(geometryDrawing);
+		}
+
+		private void X4Fun()
+		{
+			var geometryGroup = new GeometryGroup();
+			for (var i = 0; i < 2; i++)
+			{
+				var line = new LineGeometry(
+					new Point(i / (double)CountDot, .5 - 1/_dataList[2][i]),
+					new Point((i + 1) / (double)CountDot, .5 - 1/_dataList[2][i + 1])
+				);
+				geometryGroup.Children.Add(line);
+			}
+
+			var geometryDrawing = new GeometryDrawing
+			{
+				Geometry = geometryGroup,
+				Pen = new Pen(Brushes.Black, 0.005)
 			};
 
 
