@@ -19,25 +19,9 @@ namespace WpfApp1
     /// </summary>
     public partial class Contact : Window
     {
-        public Contact()
-        {
-            InitializeComponent();
-        }
-        private void WorkClick(object sender, RoutedEventArgs e)
-        {
-            Works works = new Works();
-            this.Content = works.Content;
-        }
-        private void ContactClick(object sender, RoutedEventArgs e)
-        {
-            Contact contact = new Contact();
-            this.Content = contact.Content;
-        }
-
-        private void MainClick(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            this.Content = mainWindow.Content;
-        }
+        public Contact() => InitializeComponent();
+        private void WorkClick(object sender, RoutedEventArgs e) => this.Content = new Works().Content;
+        private void ContactClick(object sender, RoutedEventArgs e) => this.Content = new Contact().Content;
+        private void MainClick(object sender, RoutedEventArgs e) => this.Content = new MainWindow().Content;
     }
 }

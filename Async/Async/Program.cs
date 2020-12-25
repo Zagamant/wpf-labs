@@ -1,11 +1,7 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Threading;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Async
 {
@@ -13,8 +9,8 @@ namespace Async
     {
         static void Main(string[] args)
         {
-            Thread firstThread = new Thread(StringThread);
-            Thread secondThread = new Thread(SecondThread);
+            var firstThread = new Thread(StringThread);
+            var secondThread = new Thread(SecondThread);
             firstThread.Start();
             secondThread.Start();
         }
@@ -22,43 +18,47 @@ namespace Async
 
         public static void StringThread()
         {
-            StreamReader sr = new StreamReader("harry.txt"); 
+            var sr = new StreamReader("asd.txt");
             string Originalline, formatedLine;
-            while (!sr.EndOfStream) {
-                Originalline = sr.ReadLine();
-                formatedLine = Originalline.Replace('e', 'Y');
-                Console.WriteLine(formatedLine);
-                Thread.Sleep(300);
+            for (int i = 0; i < 10; i++)
+            {
+                while (!sr.EndOfStream)
+                {
+                    Originalline = sr.ReadLine();
+                    formatedLine = Originalline.Replace('e', 'Y');
+                    Console.WriteLine(formatedLine);
+                    Thread.Sleep(300);
+                }
             }
+
             sr.Close();
         }
 
-        
 
-        public static void SecondThread() {
+        public static void SecondThread()
+        {
             int min = 1,
                 max = 3000,
                 value = min;
 
-            for (int i = min; i < max; i++) {
-                if (isDevided(i)) {
-                    Thread.Sleep(500);
-                    Console.WriteLine("Поток 2: делится на 3 число " + i + "\n");
-                }
+            for (var i = min; i < max; i++)
+            {
+                if (!isDevided(i))
+                    continue;
+                Thread.Sleep(500);
+                Console.WriteLine("Поток 2: делится на 3 число " + i + "\n");
             }
         }
 
 
-        private static bool isDevided(int N) {
-            bool tf = true;
-                if (N % 3 != 0){
-                    tf = false;
-                    return tf;
-                }
+        private static bool isDevided(int N)
+        {
+            var tf = true;
+            if (N % 3 == 0) 
+                return tf;
+            tf = false;
             return tf;
+
         }
     }
-
-
 }
-

@@ -29,8 +29,8 @@
                     <DockPanel Background="black">
                         <StackPanel Orientation="Horizontal" Height="Auto">
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10,0,10,0" >
-                                <TextBlock Foreground="White" Text="KRAVCHIK" FontSize="18"/>
-                                <TextBlock Foreground="White" Text="украшения ручной работы" FontSize="14"/>
+                                <TextBlock Foreground="White" Text="Данссимо" FontSize="18"/>
+                                <TextBlock Foreground="White" Text="челики" FontSize="14"/>
                             </StackPanel>
                         </StackPanel>
                         <Button DockPanel.Dock="Right" Style="{StaticResource MainButton}" Command="local:MainWindow.ShowContact">Контакты</Button>
@@ -46,20 +46,17 @@
                         <StackPanel Margin="20">
                             <TextBlock Text="Магазины" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
                             
-                            <TextBlock Text="Магазин-кофейня Плюш" HorizontalAlignment="Right" FontSize="17" Margin="0,20,0,0"/>
-                            <TextBlock Text="просп. Машерова, 12" HorizontalAlignment="Right" FontSize="17"/>
-                            <TextBlock Text="instagram.com/plushstore.by" HorizontalAlignment="Right" FontSize="17"/>
-                            <TextBlock Text="+375 29 631-26-33" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
+                            <TextBlock Text="Магазин-дичь" HorizontalAlignment="Right" FontSize="17" Margin="0,20,0,0"/>
+                            <TextBlock Text="просп. меня 12" HorizontalAlignment="Right" FontSize="17"/>
+                            <TextBlock Text="instagram.com/ne.zahodi" HorizontalAlignment="Right" FontSize="17"/>
+                            <TextBlock Text="88005553536" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
 
-                            <TextBlock Text="Магазин MushiShop" HorizontalAlignment="Right" FontSize="17" Margin="0,20,0,0"/>
+                            <TextBlock Text="Магазин Своя Игра" HorizontalAlignment="Right" FontSize="17" Margin="0,20,0,0"/>
                             <TextBlock Text="Независимости, 58" HorizontalAlignment="Right" FontSize="17"/>
-                            <TextBlock Text="mushishop.by@gmail.com" HorizontalAlignment="Right" FontSize="17"/>
-                            <TextBlock Text="+375 25 764-48-06" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
+                            <TextBlock Text="shophzchto@gmail.com" HorizontalAlignment="Right" FontSize="17"/>
+                            <TextBlock Text="88005553535" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
 
-                            <TextBlock Text="Магазин Дом из плюша" HorizontalAlignment="Right" FontSize="17" Margin="0,20,0,0"/>
-                            <TextBlock Text="просп. Машерова, 12" HorizontalAlignment="Right" FontSize="17"/>
-                            <TextBlock Text="instagram.com/plushstore.by" HorizontalAlignment="Right" FontSize="17"/>
-                            <TextBlock Text="+375 29 631-26-33" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
+                          
 
 
                         </StackPanel>

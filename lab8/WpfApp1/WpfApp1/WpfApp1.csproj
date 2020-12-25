@@ -114,31 +114,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\automate.jpg" />
-    <Resource Include="Images\bsu.png" />
-    <Resource Include="Images\FPIXEL.GIF" />
-    <Resource Include="Images\ground.jpg" />
-    <Resource Include="Images\mango.jpg" />
-    <Resource Include="Images\moto.jpg" />
-    <Resource Include="Images\myphoto.jpg" />
-    <Resource Include="Images\portret.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\map.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\kr.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\1.jpg" />
-    <Resource Include="Images\2.jpg" />
-    <Resource Include="Images\3.jpg" />
-    <Resource Include="Images\4.jpg" />
-    <Resource Include="Images\5.jpg" />
-    <Resource Include="Images\6.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\7.jpg" />
+    <Resource Include="Images\1.png" />
+    <Resource Include="Images\2.png" />
+    <Resource Include="Images\3.png" />
+    <Resource Include="Images\4.png" />
+    <Resource Include="Images\5.png" />
+    <Resource Include="Images\6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

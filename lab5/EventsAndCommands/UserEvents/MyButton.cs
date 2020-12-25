@@ -44,10 +44,6 @@ namespace UserEvents
 			RaiseEvent(myEventArgs); // Возбуждаем событие
 		}
 	}
-}
-
-namespace UserEvents
-{
 	// Расширяем класс аргументов
 	internal class MyEventArgs : RoutedEventArgs
 	{
